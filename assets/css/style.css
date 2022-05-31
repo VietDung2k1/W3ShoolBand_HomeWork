@@ -119,6 +119,12 @@ img {
     font-size: 12px;
 }
 
+#header .menu-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 #header .menu-button,
 #header .search-button {
     float: right;

@@ -18,7 +18,7 @@
                 <li><a href="#tour-section">tour</a></li>
                 <li><a href="#contact">contact</a></li>
                 <li>
-                    <a href="">more
+                    <a href="#">more
                         <i class="icon-more ti-angle-down"></i>
                     </a>
                     <ul class="subnav text-center">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="clear"></div>
-            </div>
+            </div>1
 
             <div id="tour-section">
                 <div class="text-content">
@@ -188,24 +188,35 @@
     </div>
 
     <script>
-        const main = document.querySelector('#content')
-        const header = document.getElementById('header')
-        const menu_button = document.getElementById('js-menu-button')
-        menu_button.addEventListener('click', ShowHeader)
-        
-        menu_button.onclick = ShowHeader()
-        function ShowHeader () {
-        var HeaderIsClose = header.clientHeight === 46;
-        if (HeaderIsClose) {
-            header.style.height = 'auto';
-        } 
-        else {
-             header.style.height = '46px';
+        const main = document.querySelector('#content');
+        const header = document.getElementById('header');
+        const menu_button = document.getElementById('js-menu-button');
+        var headerHeight = header.clientHeight;
+        // menu_button.addEventListener('click', ShowHeader);
+        menu_button.onclick = function () {
+            var HeaderIsClose = header.clientHeight === headerHeight;
+            if (HeaderIsClose) {
+                header.style.height = 'auto';
+            } 
+            else {
+                header.style.height = headerHeight + 'px';
+            }
         }
-        }
-        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
-        for (var item of menuItems){
-            item.addEventListener('click', ShowHeader)
+        // Auto close header when click menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var menuItem of menuItems){
+            // var isparentMenu = menuItem.nextElementSibling && menuItem.nextElementSibling.classList.contains("subnav");
+            // if (!isparentMenu){
+            // menuItem.addEventListener('click', ShowHeader);
+            // }
+            menuItem.onclick = function (event) {
+                var isparentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains("subnav");
+                if (!isparentMenu) {
+                    header.style.height = '46px'
+                } else {
+                    header.style.height = 'auto'
+                }
+            }
         }
 
     </script>

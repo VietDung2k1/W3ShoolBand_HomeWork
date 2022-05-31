@@ -16,7 +16,8 @@
 @media (max-width: 740px) {
 
     #header{
-        height: inherit;
+        /* height: inherit; */
+        height: 46px;
         overflow: hidden;
     }
 
@@ -73,5 +74,21 @@
     #image-location {
         padding-top: 80%;
         background-size: 100% 100%;
+    }
+
+    #nav {
+        display: block;
+    }
+
+    #nav > li > a {
+        display: block;
+    }
+
+    #nav > li:first-child {
+        display: inline-block;
+    }
+
+    #nav .subnav {
+        position: unset;
     }
 }
